@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Spinner } from './Spinner';
+import React from 'react'
+import styled from 'styled-components'
+import { Spinner } from './Spinner'
 
 export const FullScreenSpinner = styled.div.attrs({
-  children: <Spinner black size="40px" />,
+  children: <Spinner black size="40px"/>
 })`
   position: fixed;
   display: flex;
@@ -12,4 +12,4 @@ export const FullScreenSpinner = styled.div.attrs({
   align-items: center;
   justify-content: center;
   color: blue;
-`;
+`

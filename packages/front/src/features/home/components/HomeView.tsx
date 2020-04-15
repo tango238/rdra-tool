@@ -1,26 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Typography } from '@rmwc/typography'
+import { Button } from '@rmwc/button'
+import { Navigation } from 'src/components/Navigation'
+import { TopBar } from 'src/components/TopBar'
+import { ToolPane } from 'src/components/ToolPane'
+import { Panel } from 'src/components/Panel'
+import { PropertyPane } from 'src/components/PropertyPane'
+import { Model } from 'src/components/Model'
 
-type HomeProps = {
-}
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: 1fr;
+  height: 100%;
+`
+
+type HomeProps = {}
 
 export default (props => {
 
+  const [showNavigation, toggleNavigation] = useState<boolean>(false)
+
   return (
     <>
-      <Typography use="headline1">headline1</Typography><br />
-      <Typography use="headline2">headline2</Typography><br />
-      <Typography use="headline3">headline3</Typography><br />
-      <Typography use="headline4">headline4</Typography><br />
-      <Typography use="headline5">headline5</Typography><br />
-      <Typography use="headline6">headline6</Typography><br />
-      <Typography use="subtitle1">subtitle1</Typography><br />
-      <Typography use="subtitle2">subtitle2</Typography><br />
-      <Typography use="body1">body1</Typography><br />
-      <Typography use="body2">body2</Typography><br />
-      <Typography use="caption">caption</Typography><br />
-      <Typography use="button">button</Typography><br />
-      <Typography use="overline">overline</Typography><br />
+      <Navigation show={showNavigation} onBlur={() => toggleNavigation(false)}/>
+      <TopBar onMenuClick={() => toggleNavigation(true)}/>
+      <Layout>
+        <ToolPane></ToolPane>
+        <Panel></Panel>
+        <PropertyPane></PropertyPane>
+      </Layout>
     </>
   )
 }) as React.FC<HomeProps>

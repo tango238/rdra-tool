@@ -1,17 +1,17 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react'
+import styled, { css } from 'styled-components'
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  className?: string;
-  label: string;
-  error?: string | null;
+  className?: string
+  label: string
+  error?: string | null
 }
 
 const Label = styled.label`
   display: block;
   margin-bottom: 8px;
-`;
+`
 
 const StyledInput = styled.input`
   display: block;
@@ -34,32 +34,32 @@ const StyledInput = styled.input`
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     outline-offset: -2px;
   }
-`;
+`
 
 const Error = styled.div`
   width: 100%;
   margin-top: 4px;
   font-size: 80%;
   color: #dc3545;
-`;
+`
 
 const _Input = (props: InputProps) => {
-  const { className, label, error, ...rest } = props;
+  const { className, label, error, ...rest } = props
   return (
     <div className={className}>
       <Label>{label}</Label>
       <StyledInput {...rest} />
       {error && <Error>{error}</Error>}
     </div>
-  );
-};
+  )
+}
 
 export const Input = styled(_Input)`
   width: 100%;
   display: block;
   ${props =>
-    props.error &&
-    css`
+  props.error &&
+  css`
       ${StyledInput} {
         border-color: #dc3545;
         &:focus {
@@ -67,4 +67,4 @@ export const Input = styled(_Input)`
         }
       }
     `};
-`;
+`

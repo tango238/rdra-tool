@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { Spinner } from './Spinner';
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { Spinner } from './Spinner'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -10,14 +10,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const _Button = (props: ButtonProps) => {
-  const { children, large, block, loading, disabled, ...rest } = props;
+  const { children, large, block, loading, disabled, ...rest } = props
   return (
     <button {...rest} disabled={disabled || loading}>
-      {loading && <Spinner />}
+      {loading && <Spinner/>}
       {children}
     </button>
-  );
-};
+  )
+}
 
 export const Button = styled(_Button)`
   display: inline-block;
@@ -64,15 +64,15 @@ export const Button = styled(_Button)`
   }
 
   ${props =>
-    props.block &&
-    css`
+  props.block &&
+  css`
       width: 100%;
       display: block;
     `};
 
   ${props =>
-    props.large &&
-    css`
+  props.large &&
+  css`
       padding: 8px 16px;
       font-size: 20px;
       line-height: 1.5;
@@ -82,4 +82,4 @@ export const Button = styled(_Button)`
   ${Spinner} {
     margin-right: 10px;
   }
-`;
+`

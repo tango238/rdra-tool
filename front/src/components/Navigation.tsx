@@ -16,7 +16,6 @@ export const Navigation = (props: NavigationProps) => {
     <>
       <Elevation z={16} wrap>
         <NavigationDiv tabIndex={-1} {...rest}>
-          {children}
         </NavigationDiv>
       </Elevation>
       <Overlay show={props.show} onClick={onBlur}/>

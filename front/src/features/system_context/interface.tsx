@@ -5,12 +5,12 @@ import { createModule } from 'typeless'
 import { HomeSymbol } from './symbol'
 
 // --- Actions ---
-export const [handle] = createModule(HomeSymbol).withState<Sample1State>()
+export const [handle] = createModule(HomeSymbol).withState<SystemContextState>()
 
 // --- Routing ---
 const ModuleLoader = React.lazy(() => import('./module'))
 
-const HomeRoute = () => (
+const SystemContextRoute = () => (
   <DefaultSuspense>
     <ModuleLoader />
   </DefaultSuspense>
@@ -20,10 +20,10 @@ export const routeConfig: RouteConfig = {
   type: 'route',
   auth: true,
   path: '/',
-  component: <HomeRoute />,
+  component: <SystemContextRoute />,
 }
 
 // --- Types ---
-export interface HomeState {
+export interface SystemContextState {
   foo: string
 }

@@ -25,7 +25,7 @@ export default (props => {
   return (
     <>
       <Navigation show={showNavigation} onBlur={() => toggleNavigation(false)}/>
-      <TopBar onMenuClick={() => toggleNavigation(true)}/>
+      <TopBar title={'システムコンテキスト図'} onMenuClick={() => toggleNavigation(true)}/>
       <Layout>
         <ToolPane></ToolPane>
         <Panel></Panel>

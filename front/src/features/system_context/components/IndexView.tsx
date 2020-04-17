@@ -16,7 +16,7 @@ const Layout = styled.div`
   height: 100%;
 `
 
-type HomeProps = {}
+type ViewProps = {}
 
 export default (props => {
 
@@ -33,4 +33,4 @@ export default (props => {
       </Layout>
     </>
   )
-}) as React.FC<HomeProps>
+}) as React.FC<ViewProps>

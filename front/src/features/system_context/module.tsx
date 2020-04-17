@@ -1,5 +1,5 @@
 import React from 'react'
-import SystemContextView from './components/SystemContextView'
+import SystemContextView from './components/IndexView'
 import { SystemContextState, handle } from './interface'
 
 // --- Reducer ---

@@ -1,1 +1,1 @@
-export const HomeSymbol = Symbol('sytem_context')
+export const SytemContextSymbol = Symbol('sytem_context')

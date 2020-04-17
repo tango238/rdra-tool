@@ -2,15 +2,15 @@ import React from 'react'
 import { DefaultSuspense } from 'src/components/DefaultSuspense'
 import { RouteConfig } from 'src/types'
 import { createModule } from 'typeless'
-import { SytemContextSymbol } from './symbol'
+import { RequirementModelSymbol } from './symbol'
 
 // --- Actions ---
-export const [handle] = createModule(SytemContextSymbol).withState<SystemContextState>()
+export const [handle] = createModule(RequirementModelSymbol).withState<RequirementModelState>()
 
 // --- Routing ---
 const ModuleLoader = React.lazy(() => import('./module'))
 
-const SystemContextRoute = () => (
+const RequirementModelRoute = () => (
   <DefaultSuspense>
     <ModuleLoader />
   </DefaultSuspense>
@@ -19,11 +19,11 @@ const SystemContextRoute = () => (
 export const routeConfig: RouteConfig = {
   type: 'route',
   auth: true,
-  path: '/',
-  component: <SystemContextRoute />,
+  path: '/requirement_model',
+  component: <RequirementModelRoute />,
 }
 
 // --- Types ---
-export interface SystemContextState {
+export interface RequirementModelState {
   foo: string
 }

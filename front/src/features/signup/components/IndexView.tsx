@@ -1,13 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useActions } from 'typeless'
-import { Link } from 'typeless-router'
 import { Alert } from 'src/components/Alert'
 import { Button } from 'src/components/Button'
 import { Input } from 'src/components/FormInput'
 import { FormInput } from 'src/components/ReduxInput'
-import { LoginFormActions, LoginFormProvider } from '../login-form'
-import { getLoginState } from '../interface'
+import styled from 'styled-components'
+import { useActions } from 'typeless'
+import { SignupFormActions, SignupFormProvider } from '../signup-form'
+import { getSignupState } from '../interface'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -41,29 +40,29 @@ const Info = styled.div`
   margin-top: 20px;
 `
 
-export const LoginView = () => {
-  const { submit } = useActions(LoginFormActions)
-  const { isLoading, error } = getLoginState.useState()
+interface ViewProps {}
+
+export default ((props: ViewProps) => {
+  const { submit } = useActions(SignupFormActions)
+  const { isLoading, error } = getSignupState.useState()
 
   return (
     <Wrapper>
-      <LoginFormProvider>
+      <SignupFormProvider>
         <Form
           onSubmit={e => {
             e.preventDefault()
             submit()
           }}
         >
-          <Title>Please sign in</Title>
           {error && <Alert>{error}</Alert>}
-          <FormInput name="username" label="Username"/>
+          <FormInput name="email" label="Email"/>
           <FormInput name="password" label="Password" type="password"/>
           <Button large block loading={isLoading}>
-            Sign in
+            アカウントを作成する
           </Button>
-          <Info>Log in as user/pass or <Link href="/signup">create account</Link></Info>
         </Form>
-      </LoginFormProvider>
+      </SignupFormProvider>
     </Wrapper>
   )
-}
+}) as React.FC<ViewProps>

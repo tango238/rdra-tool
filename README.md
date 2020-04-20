@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deploy
+
+```
+cd front 
+npm run build 
+cd ..
+firebase deploy
+```
 
 ## Available Scripts
 

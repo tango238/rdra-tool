@@ -28,7 +28,13 @@ export default (props => {
       <Navigation show={showNavigation} onBlur={() => toggleNavigation(false)}/>
       <TopBar title={'システムコンテキスト図'} onMenuClick={() => toggleNavigation(true)}/>
       <Layout>
-        <ToolPane></ToolPane>
+        <ToolPane>
+          <ul>
+            <li>アクター</li>
+            <li>システム</li>
+            <li>外部システム</li>
+          </ul>
+        </ToolPane>
         <Panel>
           <Model active={active} onClick={e => activeModel(!active)}></Model>
         </Panel>

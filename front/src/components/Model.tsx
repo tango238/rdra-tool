@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import Draggable from 'react-draggable'
 import { Elevation } from '@rmwc/elevation'
 
 interface ModelProps {
   children: React.ReactNode
   active: boolean
+
   onClick(event: React.MouseEvent<HTMLDivElement>): void
 }
 
@@ -14,15 +16,17 @@ const _Model = (props: ModelProps) => {
   const { children, active, onClick, ...rest } = props
 
   return (
-    <div {...rest} onClick={props.onClick}>
-      <Top active={active}/>
-      <Left active={active}/>
-      <Center>
-        <Main active={active}></Main>
-      </Center>
-      <Right active={active}/>
-      <Bottom active={active}/>
-    </div>
+    <Draggable bounds="parent" positionOffset={{ x: '200px', y: '60px'}}>
+      <div {...rest} onClick={props.onClick}>
+        <Top active={active}/>
+        <Left active={active}/>
+        <Center>
+          <Main active={active}></Main>
+        </Center>
+        <Right active={active}/>
+        <Bottom active={active}/>
+      </div>
+    </Draggable>
   )
 }
 
@@ -83,11 +87,12 @@ const Bottom = styled.div`
   grid-row: 3 / 4;
   grid-column: 2 / 3;
   justify-self: center;
+  cursor: pointer;
   display: ${props => props.active ? 'block' : 'none'};
 `
 
 const _Main = props => {
-  const {children, active, ...rest } = props
+  const { children, active, ...rest } = props
 
   return (
     <Elevation z={4} {...rest}>

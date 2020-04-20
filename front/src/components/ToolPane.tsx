@@ -7,7 +7,9 @@ interface ToolPaneProps {
 
 const _ToolPane = (props: ToolPaneProps) => {
   const { children, ...rest } = props
-  return (<div {...rest}>ToolPane</div>)
+  return (
+    <div {...rest}>{children}</div>
+  )
 }
 
 export const ToolPane = styled(_ToolPane)`

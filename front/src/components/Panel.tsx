@@ -8,7 +8,11 @@ interface PanelProps {
 
 const _Panel = (props: PanelProps) => {
   const { children, ...rest } = props
-  return (<div {...rest}></div>)
+  return (
+    <div {...rest}>
+      {children}
+    </div>
+  )
 }
 
 export const Panel = styled(_Panel)`

@@ -22,13 +22,16 @@ export default (props => {
 
   const [showNavigation, toggleNavigation] = useState<boolean>(false)
 
+  const [active, activeModel] = useState<boolean>(false)
   return (
     <>
       <Navigation show={showNavigation} onBlur={() => toggleNavigation(false)}/>
       <TopBar title={'システムコンテキスト図'} onMenuClick={() => toggleNavigation(true)}/>
       <Layout>
         <ToolPane></ToolPane>
-        <Panel></Panel>
+        <Panel>
+          <Model active={active} onClick={e => activeModel(!active)}></Model>
+        </Panel>
         <PropertyPane></PropertyPane>
       </Layout>
     </>
